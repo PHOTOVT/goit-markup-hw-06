@@ -1,6 +1,7 @@
 :root {
   --color-navy: #2e2f42;
   --color-navy-transparent: #2e2f4266;
+  --color-black: #2f2f37;
   --color-black-transparent: #0000001a;
   --color-light-black: #00000026;
   --color-white: #ffffff;
@@ -44,33 +45,52 @@ ol {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  /*width: 1158px;*/
+  max-width: 320px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .header {
   border-bottom: 1px solid var(--color--cornflower);
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
-}
-
-.container {
-  width: 1158px;
-  margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 18px;
 }
 
 .header-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--color-white);
+  max-width: 320px;
+  height: 56px;
 }
 
-.header .container {
+/*.header .container {
   display: flex;
-  padding: 0 15px;
+  padding: 0 16px;
   align-items: center;
-}
+}*/
 
 .nav {
   display: flex;
@@ -78,7 +98,7 @@ img {
 }
 
 .nav-logo {
-  margin-right: 76px;
+  /*margin-right: 76px;*/
   display: block;
 }
 
@@ -103,12 +123,13 @@ img {
   text-transform: uppercase;
 }
 
-.menu {
-  display: flex;
-  gap: 40px;
+.navigation {
+  /*display: flex;
+  gap: 40px;*/
+  display: none;
 }
 
-.menu-link {
+.navigation-link {
   color: var(--color-navy);
   font-size: 16px;
   font-weight: 500;
@@ -119,9 +140,9 @@ img {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu-link:hover,
-.menu-link:focus,
-.menu-link:active {
+.navigation-link:hover,
+.navigation-link:focus,
+.navigation-link:active {
   color: var(--color-ocean);
 }
 
@@ -130,7 +151,7 @@ img {
   color: var(--color-ocean);
 }
 
-.menu-link.current::after {
+.navigation-link.current::after {
   position: absolute;
   content: "";
   left: 0;
@@ -142,17 +163,18 @@ img {
   background-color: var(--color-ocean);
 }
 
-.address {
-  font-style: normal;
-  margin-left: auto;
+.contacts {
+  /*font-style: normal;
+  margin-left: auto;*/
+  display: none;
 }
 
-.address-menu {
+.contacts-list {
   display: flex;
   gap: 40px;
 }
 
-.menu-contacts {
+.contacts-link {
   color: var(--color-slate);
   padding: 24px 0;
   line-height: 1.5;
@@ -164,13 +186,14 @@ img {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu-contacts:hover,
-.menu-contacts:focus,
-.menu-contacts:active {
+.contacts-link:hover,
+.contacts-link:focus,
+.contacts-link:active {
   color: var(--color-ocean);
 }
 
 .order {
+  min-width: 320px;
   max-width: 1440px;
   height: 600px;
   padding: 188px 0;
@@ -222,29 +245,18 @@ img {
   padding: 120px 0;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
 .advantages-list {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex-shrink: 0;
-  gap: 24px;
+  /*gap: 24px;*/
+  gap: 72px;
 }
 
 .advantages-list-item {
-  flex-direction: column;
-  align-items: flex-start;
-  width: calc((100% - 72px) / 4);
+  /*width: calc((100% - 72px) / 4);*/
+  width: 100%;
 }
 
 .advatages-card {
@@ -269,25 +281,39 @@ img {
   color: var(--color-navy);
   font-size: 36px;
   font-weight: 700;
-  line-height: 111.111%;
-  letter-spacing: 0.72px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
   text-transform: capitalize;
   text-align: center;
   margin-bottom: 72px;
 }
 
+.advantages-title {
+  color: var(--color-navy);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
 .team-members-list {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 72px;
+  /*gap: 24px;*/
 }
 
 .team-members-item {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 0px;
-  width: calc((100% - 72px) / 4);
+  /*width: calc((100% - 72px) / 4);*/
+  width: 100%;
   background-color: var(--color-white);
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
@@ -297,15 +323,6 @@ img {
 
 .member-description {
   padding: 32px 0;
-}
-
-.third-title {
-  color: var(--color-navy);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  margin-bottom: 8px;
 }
 
 .text {
@@ -429,6 +446,7 @@ img {
   background-color: var(--color-navy);
   padding: 100px 0;
   width: 1440px;
+  min-width: 320px;
   height: 312px;
   flex-shrink: 0;
 }
@@ -558,7 +576,7 @@ img {
   fill: var(--color-white);
 }
 
-/* MODAL WINDOW */
+/*MODAL WINDOW*/
 
 .backdrop {
   position: fixed;
@@ -596,7 +614,7 @@ img {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-window-close {
+.modal-window-close-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -618,21 +636,16 @@ img {
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-window-close:hover,
-.modal-window-close:focus,
-.modal-window-close:active {
+.modal-window-close-button:hover,
+.modal-window-close-button:focus,
+.modal-window-close-button:active {
+  fill: var(--color-white);
+  background-color: var(--color-ocean);
   border: none;
 }
 
 .modal-window-close-icon {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-window-close:hover,
-.modal-window-close:focus,
-.modal-window-close:active {
-  fill: var(--color-white);
-  background-color: var(--color-ocean);
 }
 
 .modal-window-description {
@@ -723,24 +736,22 @@ img {
   border-color: var(--color-iris);
 }
 
-/*CUSTOM CHECKBOX*/
-
 .modal-window-check {
   margin-bottom: 24px;
 }
 
 .modal-window-custom-checkbox {
-  width: 16px;
-  height: 16px;
-  border-radius: 2px;
-  border: 1px solid var(--color-navy-transparent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  fill: transparent;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
   margin-right: 8px;
   margin-bottom: 24px;
+  fill: transparent;
+  border: 1px solid var(--color-navy-transparent);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -778,16 +789,13 @@ img {
   display: block;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 10px;
   padding: 16px 32px;
   margin: 24px 120px;
   border-radius: 4px;
-  color: var(--color-white);
-  background-color: var(--color-iris);
-  box-shadow: 0px 4px 4px 0px var(--color-light-black);
   min-width: 169px;
   height: 56px;
-  text-align: center;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
@@ -795,56 +803,197 @@ img {
   cursor: pointer;
   border: none;
   font-family: "Roboto", sans-serif;
+  color: var(--color-white);
+  background-color: var(--color-iris);
+  box-shadow: 0px 4px 4px 0px var(--color-light-black);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 
-BACKGROUND IMAGE 
-screen AND
-min-resolution: 2x - 192, 3x - 288dpi 
+/*MOBILE MENU*/
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  z-index: 999;
+  /*opacity: 1;
+  visibility: hidden;
+  pointer-events: auto;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);*/
+}
+
+.mobile.menu.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-open-button {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  fill: var(--color-black);
+}
+
+.mobile-menu-container {
+  position: relative;
+}
+
+.mobile-menu-close-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 24px;
+  right: 16px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  line-height: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  fill: var(--color-navy);
+  background-color: var(--color--cornflower);
+  border: 1px solid var(--color-black-transparent);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /*argin-top: 72px;*/
+}
+
+.mobile-menu-navigation-link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  color: var(--color-navy);
+}
+
+.mobile-menu-navigation-link:hover, .mobile-menu-navigation-link:focus, .mobile-menu-navigation-link:active {
+  color: var(--color-iris);
+}
+
+.mobile-menu-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-menu-contact {
+  font-family: "Roboto", sans-serif;
+font-weight: 500;
+font-size: 20px;
+line-height: 1.2;
+letter-spacing: 0.02em;
+color: var(--color-slate);
+}
+
+.mobile-menu-contact:hover, .mobile-menu-contact:focus, .mobile-menu-contact:active {
+  color: var(--color-iris);
+}
+
+.mobile-menu-socials-list {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 40px;
+  right: 16;
+}
+
+.mobile-menu-socials-item {
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-menu-socials-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-iris);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/*ADAPTIVENESS*/
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .advantages-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+  }
+
+
+/*6TH HW
+
+GLOBAL STYLES CORRECTED ACCORDING TO MOBILE SIZES AND BACK TO DESKTOP USING @MEDIA
+
+BACKGROUND IMAGES 
+1X SCREENS
+backgrounf-image: url();
+background-size: cover
+
+2X SCREENS
+@media only screen and (min-resolution: ...dpi) and (max-width: ...px) {}
+1x - 96dpi, 2x - 192dpi, 3x - 288dpi; (max-width: 767px) - phone, (min-width: 768px) - tablet, (min-width: 1158px) - desktop
+
 min-resolution: 2, 3dppx
 min-device-pixel-ratio: 2,3 
-AND (min-width: )
 
-PICTUES THAT HAVE SAME SIZES ON DIFFERENT DEVICES (HTML)
-<img ... srcset= image@2x.jpg 2x, image@3x.jpg 3x" 
+DOWNLOAD IMAGES IN ALL RESOLUTIONS!
+
+
+CONTENT IMAGES
+PICTUES THAT HAVE SAME SIZES ON DIFFERENT DEVICES
+<img srcset="image@2x.jpg 2x, image@3x.jpg 3x" 
+2x, 3x ARE DESCRIPTORS
 src="image.jpg"
 alt=""/>
 
-PICTURES THAT HAVE DIFFERENT SIZES ON DIFFERENT DEVICES (HTML)
+PICTURES THAT HAVE DIFFERENT SIZES ON DIFFERENT DEVICES (WITH DESCRIPTORS)
 <picture>
-<source>
-srcset="image.jpg 1x, image@2x.jpg 2x" 
-media=(min-width: )
-/>
-<img src="image.jpg"/>
+<source srcset="image.jpg 1x, image@2x.jpg 2x" media="(min-width: ...px)" />
+<img src="image.jpg"/> (WHATEVER VERSION) />
 </picture>
-
-MIN WIDTH IS ORDERED FROM > TO <
-MAX WIDTH IS FROM < TO >
+*sources are written from > to <
 
 
-TO CENTER SOMETHING
-margin-left, margin-right = auto;
+ADAPTIVE HEADER
+MOBILE HEADER
 
-min-width: container + paddings
-IN CONTAINER min-width in @media = max-width in container
 
-MOBILE FIRST. TABLET AND DESKTOP ARE WITH @media
 
-DEFAULT STYLES OF BUTTONS (bg-color, border, padding, line-height, (additionally fill/stroke) must be applied
 
-justify-content: space-between attachea flex-elements to the edges of container
-
-MOBILE VERSION HEADER
-ONE DIV (position: fixed;) IS FOR THE WHOLE MENU AND THE SECOND ONE (position: relative;) IS FOR ITEMS INSIDE THE MENU ONLY
-USE TOP, LEFT, RIGHT FOR POSITIONING BUTTONS IN THE MENU
-
-transform: translateX(100%) IS FOR MOVING THE MENU TO THE RIGHT (APPLY FOR THE FIRST DIV)
-transform: translateX(0%) TO THE FIRST DIV. is-open TO SHOW THE MENU ON THE INTERFACE
-+ TRANSITIONS
-
-ALL THE MOBILE HEADER ELEMENTS ARE WRITTEN IN AN APPROPRIATE @media screen and (max-width: 767px;)
 
 TABLET VERSION HEADER
 display: none; FOR THE MOBILE HEADER MENU AND OPEN MENU BUTTON in @media screen and (min-width: 768px;)
@@ -857,7 +1006,40 @@ COMMENT AND NOT DELETE INITIAL CODE FOR PC!
 
 FLEX: WRAP FOR MOBILE FLEX CONTAINERS
 
-GLOBAL STYLES CORRECTED ACCORDING TO MOBILE SIZES AND BACK TO DESKTOP USING @MEDIA
 
 
-*/
+
+
+
+MIN WIDTH IS ORDERED FROM > TO <
+MAX WIDTH IS FROM < TO >
+
+min-width: container + paddings
+IN CONTAINER min-width in @media = max-width in container
+
+MOBILE FIRST. TABLET AND DESKTOP ARE WITH @media
+
+DEFAULT STYLES OF BUTTONS (bg-color, border, padding, line-height, (additionally fill/stroke) must be applied)
+
+justify-content: space-between attachea flex-elements to the edges of container
+
+MOBILE VERSION HEADER
+ONE DIV (position: fixed;) IS FOR THE WHOLE MENU AND THE SECOND ONE (position: relative;) IS FOR ITEMS INSIDE THE MENU ONLY
+USE TOP, LEFT, RIGHT FOR POSITIONING BUTTONS IN THE MENU
+
+transform: translateX(100%) IS FOR MOVING THE MENU TO THE RIGHT (APPLY FOR THE FIRST DIV)
+transform: translateX(0%) TO THE FIRST DIV. is-open TO SHOW THE MENU ON THE INTERFACE
++ TRANSITIONS
+
+
+TABLET VERSION HEADER
+display: none; FOR THE MOBILE HEADER MENU AND OPEN MENU BUTTON in @media screen and (min-width: 768px;)
+NAVIGATION LIST HAS display: none; ON MOBILE AND display: flex; ON TABLET AS IT APPEARS AGAIN
+
+WIDTH OF GROUP ELEMENTS LIKE CARDS IS GAP+WIDTH(CALC)
+CARDS: HTML OF MOBILE - W100% INSTEAD OF WIDTH(CALC) 
+
+COMMENT AND NOT DELETE INITIAL CODE FOR PC!
+
+FLEX: WRAP FOR MOBILE FLEX CONTAINERS
+
